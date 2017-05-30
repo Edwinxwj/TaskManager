@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".AddActivity"></activity>
+        <receiver android:name=".TaskBroadcastReceiver"></receiver>
     </application>
 
 </manifest>

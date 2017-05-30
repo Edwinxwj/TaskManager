@@ -12,7 +12,6 @@ import android.content.Intent;
  */
 
 public class TaskBroadcastReceiver extends BroadcastReceiver {
-
     int reqCode = 12345;
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -25,8 +24,8 @@ public class TaskBroadcastReceiver extends BroadcastReceiver {
 
         // build notification
         Notification.Builder builder = new Notification.Builder(context);
-        builder.setContentTitle(intent.getStringExtra("name"));
-        builder.setContentText(intent.getStringExtra("content"));
+        builder.setContentTitle(intent.getStringExtra("name").toString());
+        builder.setContentText("Task");
         builder.setSmallIcon(android.R.drawable.ic_dialog_info);
         builder.setContentIntent(pIntent);
         builder.setAutoCancel(true);
@@ -34,6 +33,8 @@ public class TaskBroadcastReceiver extends BroadcastReceiver {
         NotificationManager notificationManager = (NotificationManager)
                 context.getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.notify(123, n);
+
+
     }
 }
 

@@ -86,21 +86,4 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
 
-    public int updateTask(Task data) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put(COLUMN_TASK_NAME, data.getName());
-        values.put(COLUMN_TASK_CONTENT, data.getDescription());
-        String condition = COLUMN_ID + "= ?";
-        String[] args = {String.valueOf(data.get_id())};
-        int result = db.update(TABLE_TASK, values, condition, args);
-        if (result < 1){
-            Log.d("DBHelper", "Update failed");
-        }
-
-        db.close();
-        return result;
-    }
-
-
 }

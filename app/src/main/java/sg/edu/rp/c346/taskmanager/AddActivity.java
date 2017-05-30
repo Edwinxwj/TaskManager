@@ -1,24 +1,23 @@
 package sg.edu.rp.c346.taskmanager;
 
+
 import android.app.Activity;
 import android.app.AlarmManager;
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RadioButton;
 import android.widget.Toast;
 
 import java.util.Calendar;
 
 import static android.R.attr.id;
-import static android.R.id.edit;
-import static android.os.Build.VERSION_CODES.M;
-import static sg.edu.rp.c346.taskmanager.R.id.editTextContent;
-import static sg.edu.rp.c346.taskmanager.R.id.editTextName;
 
 public class AddActivity extends AppCompatActivity {
 
@@ -73,6 +72,7 @@ public class AddActivity extends AppCompatActivity {
                         pendingIntent);
 
                 Intent returnIntent = new Intent();
+                returnIntent.putExtra("name",name);
                 setResult(RESULT_OK,returnIntent);
                 finish();
             }
